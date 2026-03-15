@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Typography Interactive Lab</title>
 
 <style>
@@ -11,10 +14,7 @@ font-family:Arial;
 background:#f4f6f8;
 text-align:center;
 padding:40px;
-}
-
-h1{
-color:#2c3e50;
+margin:0;
 }
 
 .container{
@@ -29,20 +29,29 @@ box-shadow:0 0 15px rgba(0,0,0,0.1);
 .sample{
 font-size:40px;
 margin:40px 0;
-transition:all 0.4s ease;
+transition:all 0.5s ease;
 }
 
 .control{
 margin:20px 0;
 }
 
-label{
-display:block;
-margin-bottom:5px;
-}
-
 input[type=range]{
 width:80%;
+}
+
+button{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+background:#3498db;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2980b9;
 }
 
 </style>
@@ -53,43 +62,61 @@ width:80%;
 
 <div class="container">
 
-<h1>ทดลองปรับ Typography</h1>
+<h2>Interactive Typography Lab</h2>
 
-<p>ลองปรับค่า Tracking, Leading และ Font Size เพื่อดูผลลัพธ์</p>
+<p>ลองปรับค่า Typography เพื่อดูผลลัพธ์</p>
 
 <div id="text" class="sample">
 Typography
 </div>
 
 <div class="control">
-<label>Tracking (ระยะห่างตัวอักษร)</label>
-<input type="range" min="0" max="20" value="0" oninput="changeTracking(this.value)">
+Tracking
+<br>
+<input type="range" min="0" max="20" value="0"
+oninput="changeTracking(this.value)">
 </div>
 
 <div class="control">
-<label>Leading (ระยะห่างบรรทัด)</label>
-<input type="range" min="30" max="100" value="40" oninput="changeLeading(this.value)">
+Leading
+<br>
+<input type="range" min="30" max="100" value="40"
+oninput="changeLeading(this.value)">
 </div>
 
 <div class="control">
-<label>Font Size</label>
-<input type="range" min="20" max="80" value="40" oninput="changeSize(this.value)">
+Font Size
+<br>
+<input type="range" min="20" max="80" value="40"
+oninput="changeSize(this.value)">
 </div>
+
+<button onclick="resetText()">Reset</button>
 
 </div>
 
 <script>
 
-function changeTracking(value){
-document.getElementById("text").style.letterSpacing = value + "px";
+function changeTracking(v){
+document.getElementById("text").style.letterSpacing = v + "px";
 }
 
-function changeLeading(value){
-document.getElementById("text").style.lineHeight = value + "px";
+function changeLeading(v){
+document.getElementById("text").style.lineHeight = v + "px";
 }
 
-function changeSize(value){
-document.getElementById("text").style.fontSize = value + "px";
+function changeSize(v){
+document.getElementById("text").style.fontSize = v + "px";
+}
+
+function resetText(){
+
+let t = document.getElementById("text");
+
+t.style.letterSpacing = "0px";
+t.style.lineHeight = "40px";
+t.style.fontSize = "40px";
+
 }
 
 </script>
