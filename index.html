@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Typography Interactive Lab</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f8;
+text-align:center;
+padding:40px;
+}
+
+h1{
+color:#2c3e50;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+max-width:600px;
+margin:auto;
+box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+.sample{
+font-size:40px;
+margin:40px 0;
+transition:all 0.4s ease;
+}
+
+.control{
+margin:20px 0;
+}
+
+label{
+display:block;
+margin-bottom:5px;
+}
+
+input[type=range]{
+width:80%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>ทดลองปรับ Typography</h1>
+
+<p>ลองปรับค่า Tracking, Leading และ Font Size เพื่อดูผลลัพธ์</p>
+
+<div id="text" class="sample">
+Typography
+</div>
+
+<div class="control">
+<label>Tracking (ระยะห่างตัวอักษร)</label>
+<input type="range" min="0" max="20" value="0" oninput="changeTracking(this.value)">
+</div>
+
+<div class="control">
+<label>Leading (ระยะห่างบรรทัด)</label>
+<input type="range" min="30" max="100" value="40" oninput="changeLeading(this.value)">
+</div>
+
+<div class="control">
+<label>Font Size</label>
+<input type="range" min="20" max="80" value="40" oninput="changeSize(this.value)">
+</div>
+
+</div>
+
+<script>
+
+function changeTracking(value){
+document.getElementById("text").style.letterSpacing = value + "px";
+}
+
+function changeLeading(value){
+document.getElementById("text").style.lineHeight = value + "px";
+}
+
+function changeSize(value){
+document.getElementById("text").style.fontSize = value + "px";
+}
+
+</script>
+
+</body>
+</html>
